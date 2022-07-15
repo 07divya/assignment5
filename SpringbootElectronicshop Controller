@@ -1,0 +1,50 @@
+package com.prodapt.SpringBootBasics.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.prodapt.SpringBootBasics.Repository.ElectronicshopRepository;
+import com.prodapt.SpringBootBasics.entity.Electronicshop;
+
+
+
+@RestController
+public class Electronicshopcontroller {
+
+	
+	    @RequestMapping("/e_shop")
+	    String display() {
+	        System.out.println("Trying to explore api hit With SpringBoot");
+	        return "<marquee><h1>ProdaptBatch24</h1></marquee>";
+	    }
+	  //create operation
+	    @Autowired
+	       private ElectronicshopRepository electronicshopRepository;
+
+	       // get all employees
+	       @GetMapping("/getelectronicshop")
+	       public List<Electronicshop> getAllElectronicshop(){
+	           return electronicshopRepository.findAll();
+	       }      
+
+	       // create employee rest pi
+	       @PostMapping("/addelectronicshop")
+	       public Electronicshop createElectronicshop(@RequestBody Electronicshop electronicshop) {
+	           return (Electronicshop) electronicshopRepository.save(electronicshop);
+	       }
+	       //delete operation
+	    // create employee rest pi
+	       @PostMapping("/deleteelectronicshop/{id}")
+	       public void deleteCustomer(@PathVariable int id) {
+	    	   electronicshopRepository.deleteById(id);
+	       }
+
+}
