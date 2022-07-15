@@ -1,0 +1,11 @@
+package com.prodapt.SpringBootBasics.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.prodapt.SpringBootBasics.entity.Electronicshop;
+
+public interface ElectronicshopRepository extends JpaRepository<Electronicshop,Integer> {
+
+
+
+
+}
