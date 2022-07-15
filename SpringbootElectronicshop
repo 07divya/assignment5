@@ -1,0 +1,49 @@
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="e_shop")
+public class Electronicshop {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+	
+	int id;
+	String proname;
+	int cost;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getProname() {
+		return proname;
+	}
+	public void setProname(String proname) {
+		this.proname = proname;
+	}
+	public int getCost() {
+		return cost;
+	}
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	@Override
+	public String toString() {
+		return "Electronicshop [id=" + id + ", proname=" + proname + ", cost=" + cost + "]";
+	}
+	public Electronicshop(int id, String proname, int cost) {
+		super();
+		this.id = id;
+		this.proname = proname;
+		this.cost = cost;
+	}
+	public Electronicshop() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+
+}
